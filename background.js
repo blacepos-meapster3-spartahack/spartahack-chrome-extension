@@ -6,38 +6,57 @@ import { fetchJson, checkAuthentication, login } from "./util.js"
 // https://developer.chrome.com/docs/extensions/reference/contextMenus/
 chrome.runtime.onInstalled.addListener(async () => {
 	chrome.contextMenus.create({
-		id: "save_page",
-		title: "Save this page",
+		id: "save_selection",
+		title: "Save this selection",
 		type: "normal",
-		contexts: ["page"]
+		contexts: ["selection"]
 	});
-	chrome.contextMenus.create({
-		id: "save_link",
-		title: "Save this link",
-		type: "normal",
-		contexts: ["link"]
-	});
+
+
+	// chrome.contextMenus.create({
+	// 	id: "save_page",
+	// 	title: "Save this page",
+	// 	type: "normal",
+	// 	contexts: ["page"]
+	// });
+	// chrome.contextMenus.create({
+	// 	id: "save_link",
+	// 	title: "Save this link",
+	// 	type: "normal",
+	// 	contexts: ["link"]
+	// });
+
 });
 
-// Here is where where we 
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
-	if (info.menuItemId === "save_page") {
+	if (info.menuItemId === "save_selection") {
 		if (await checkAuthentication()) {
-			console.log("Text option was clicked");
-			console.log(info);
+			console.log("Selection option was clicked");
+			console.log(info.selectionText);
 		} else {
 			login();
 		}
 	} 
 });
 
-chrome.contextMenus.onClicked.addListener(async (info, tab) => {
-	if (info.menuItemId === "save_link") {
-		if (await checkAuthentication()) {
-			console.log("Link option was clicked");
-			console.log(info);
-		} else {
-			login();
-		}
-	} 
-});
+// chrome.contextMenus.onClicked.addListener(async (info, tab) => {
+// 	if (info.menuItemId === "save_page") {
+// 		if (await checkAuthentication()) {
+// 			console.log("Text option was clicked");
+// 			console.log(info);
+// 		} else {
+// 			login();
+// 		}
+// 	} 
+// });
+
+// chrome.contextMenus.onClicked.addListener(async (info, tab) => {
+// 	if (info.menuItemId === "save_link") {
+// 		if (await checkAuthentication()) {
+// 			console.log("Link option was clicked");
+// 			console.log(info);
+// 		} else {
+// 			login();
+// 		}
+// 	} 
+// });
