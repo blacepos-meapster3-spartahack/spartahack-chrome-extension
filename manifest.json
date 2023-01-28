@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Chrome Extension Test",
+  "description": "Demonstrates the ability to modify the right-click menu and make background requests to other websites.",
+  "version": "0.1",
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "background": {
+	  "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "host_permissions": ["http://localhost:3000/*"],
+  "permissions": [
+	  "contextMenus"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["content_script.js"]
+    }
+  ]
+}
