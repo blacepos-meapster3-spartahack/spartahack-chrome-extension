@@ -16,7 +16,7 @@
   "action": {
     "default_popup": "popup.html"
   },
-  "host_permissions": ["http://162.232.250.170:42069/*"],
+  "host_permissions": ["http://autonote.tech:42069/*"],
   "permissions": [
 	  "contextMenus",
     "tabs"
