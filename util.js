@@ -18,6 +18,17 @@ export function login() {
 	});
 }
 
+export async function uploadText(text) {
+	await sendJson(
+		AUTONOTE_ADDRESS + "/extension",
+		{
+			body: JSON.stringify({
+				text: text
+			})
+		}
+	)
+}
+
 /// modified version of `fetch` with specific options for json
 export async function fetchJson(resource, options) {
 	return await fetch(
@@ -27,6 +38,21 @@ export async function fetchJson(resource, options) {
 			method: "GET",
 			headers: [
 				["Accept", "application/json"]
+			]
+		}
+	);
+}
+
+/// modified version of `fetch` with specific options for json
+export async function sendJson(resource, options) {
+	return await fetch(
+		resource,
+		{
+			...options,
+			method: "POST",
+			headers: [
+				["Accept", "application/json"],
+				["Content-Type", "application/json"]
 			]
 		}
 	);
