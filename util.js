@@ -1,6 +1,6 @@
 
 // TODO: move environment variables to .env (can dotenvy be used here? it's npm)
-const AUTONOTE_ADDRESS = "http://autonote.tech/";
+const AUTONOTE_ADDRESS = "http://autonote.tech";
 
 // makes a call to server/isauthenticated to check if user is logged in. Returns bool
 export async function checkAuthentication() {
