@@ -20,11 +20,5 @@
   "permissions": [
 	  "contextMenus",
     "tabs"
-  ],
-  "content_scripts": [
-    {
-      "matches": ["https://*/*"],
-      "js": ["content_script.js"]
-    }
   ]
 }

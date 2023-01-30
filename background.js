@@ -11,21 +11,6 @@ chrome.runtime.onInstalled.addListener(async () => {
 		type: "normal",
 		contexts: ["selection"]
 	});
-
-
-	// chrome.contextMenus.create({
-	// 	id: "save_page",
-	// 	title: "Save this page",
-	// 	type: "normal",
-	// 	contexts: ["page"]
-	// });
-	// chrome.contextMenus.create({
-	// 	id: "save_link",
-	// 	title: "Save this link",
-	// 	type: "normal",
-	// 	contexts: ["link"]
-	// });
-
 });
 
 chrome.contextMenus.onClicked.addListener(async (info, tab) => {
@@ -39,25 +24,3 @@ chrome.contextMenus.onClicked.addListener(async (info, tab) => {
 		}
 	} 
 });
-
-// chrome.contextMenus.onClicked.addListener(async (info, tab) => {
-// 	if (info.menuItemId === "save_page") {
-// 		if (await checkAuthentication()) {
-// 			console.log("Text option was clicked");
-// 			console.log(info);
-// 		} else {
-// 			login();
-// 		}
-// 	} 
-// });
-
-// chrome.contextMenus.onClicked.addListener(async (info, tab) => {
-// 	if (info.menuItemId === "save_link") {
-// 		if (await checkAuthentication()) {
-// 			console.log("Link option was clicked");
-// 			console.log(info);
-// 		} else {
-// 			login();
-// 		}
-// 	} 
-// });
